@@ -6,7 +6,7 @@ import Cart from './pages/Cart';
 import Navbar from './components/NavBar';
 import {Provider} from 'react-redux';
 import store from './store/store';
-
+import Footer from './components/footer';
 
 
 function App() {

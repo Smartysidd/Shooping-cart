@@ -20,10 +20,11 @@ const Cart=()=> {
           items.map((item)=>(
             <div className='cartCard'>
               <img src={item.image}></img>
-              <h5>{item.title}</h5>
-              <h5>Price : ${item.Price}</h5>
+              <h2>{item.title}</h2>
+              <h2>Price : ${item.Price}</h2>
 
               <button className='remove-btn'onClick={()=>handleRemove(item.id)}>Remove Item</button>
+
               </div>
           ))
         }
