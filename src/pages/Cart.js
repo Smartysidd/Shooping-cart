@@ -1,37 +1,69 @@
-import React from 'react'
-import { useSelector,useDispatch } from 'react-redux'
-import {remove} from '../store/cartSlice'
+// import React from 'react'
+// import { useSelector,useDispatch } from 'react-redux'
+// import {remove} from '../store/cartSlice'
 
-const Cart=()=> {
-  const items = useSelector((state)=> state.cart)
+// const Cart=()=> {
+//   const items = useSelector((state)=> state.cart)
 
-  const dispatch = useDispatch()
+//   const dispatch = useDispatch()
 
 
-  const handleRemove=(itemId)=>{
-    dispatch(remove(itemId))
+//   const handleRemove=(itemId)=>{
+//     dispatch(remove(itemId))
 
-  }
+//   }
+
+//   return (
+//     <div>
+//       <div className='cartWrapper'>
+//         {
+//           items.map((item)=>(
+//             <div className='cartCard'>
+//               <img src={item.image}></img>
+//               <h2>{item.title}</h2>
+//               <h2>Price : ${item.Price}</h2>
+
+//               <button className='remove-btn'onClick={()=>handleRemove(item.id)}>Remove Item</button>
+
+//               </div>
+//           ))
+//         }
+
+//       </div>
+//     </div>
+//   )
+// }
+
+// export default Cart
+
+import React from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { remove } from '../store/cartSlice';
+
+const Cart = () => {
+  const items = useSelector((state) => state.cart);
+  const dispatch = useDispatch();
+
+  const handleRemove = (itemId) => {
+    dispatch(remove(itemId));
+  };
 
   return (
     <div>
       <div className='cartWrapper'>
-        {
-          items.map((item)=>(
-            <div className='cartCard'>
-              <img src={item.image}></img>
-              <h2>{item.title}</h2>
-              <h2>Price : ${item.Price}</h2>
-
-              <button className='remove-btn'onClick={()=>handleRemove(item.id)}>Remove Item</button>
-
-              </div>
-          ))
-        }
-
+        {items.map((item) => (
+          <div key={item.id} className='cartCard'>
+            <img src={item.image} alt={item.title} />
+            <h2>{item.title}</h2>
+            <h3>Price: ${item.price}</h3> {/* Display price */}
+            <button className='remove-btn' onClick={() => handleRemove(item.id)}>
+              Remove Item
+            </button>
+          </div>
+        ))}
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Cart
+export default Cart;
